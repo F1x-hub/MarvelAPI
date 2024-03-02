@@ -1,0 +1,42 @@
+.card{
+    display: flex;
+    width: 300px;
+    text-align: center;
+    gap: 10px;
+    
+}
+.card h3{
+    margin-top: 20px;
+}
+.card img{
+    width: 300px;
+    text-align: center;
+    
+}
+.main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 50px;
+    justify-content: center;
+}
+.name{
+    margin :10px;
+    padding: 10px;
+    text-align: center;
+    height: 50px;
+}
+.buttons{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    
+}

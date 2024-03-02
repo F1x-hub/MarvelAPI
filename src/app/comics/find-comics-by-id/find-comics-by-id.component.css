@@ -1,0 +1,13 @@
+.routerButton{
+    border: 0;
+}
+.routerButton:hover {
+    border: 5px solid blue;
+    border-radius: 5px;
+    transition: border 0.15s;
+}
+.pagination{
+    display: flex;
+    justify-content: center;
+    
+}

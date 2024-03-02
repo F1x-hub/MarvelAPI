@@ -1,0 +1,20 @@
+
+<div class="main" >
+    <div class="card" *ngFor="let character of charactersArr | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage}">
+        <img [src]="character.thumbnail.path +'/standard_fantastic.'+character.thumbnail.extension" alt="">
+        <h3 class="name">{{character.name}}</h3>
+        <div class="buttons">
+            <button [routerLink]="['/comicsById', character.id]" type="button" class="btn btn-outline-primary  mr-4" data-toggle="modal" data-target=".bd-example-modal-lg">Comics</button>
+            <button [routerLink]="['/seriesById', character.id]"  type="button"  class="btn btn-outline-secondary" data-toggle="modal" data-target=".cd-example-modal-lg">Series</button>
+            <button type="button" class="btn btn-outline-secondary">Information</button>
+        </div>
+        
+    </div>
+</div>
+<div class="pagination">
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(21,21,21,255)', }">
+</ngx-loading>

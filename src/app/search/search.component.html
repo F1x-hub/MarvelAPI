@@ -1,0 +1,22 @@
+
+<div *ngIf="characters.length > 0">
+    <div *ngFor="let character of characters | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage}">
+        <h3>Name: {{character.name}}</h3>
+        <p>descriptiom: {{character.description}}</p>
+        <img [src]="character.thumbnail.path +'/standard_medium.'+character.thumbnail.extension" alt="">
+        <button [routerLink]="['/comicsById', character.id]" type="button" class="btn btn-outline-primary  mr-4" data-toggle="modal" data-target=".bd-example-modal-lg">Comics</button>
+    <button [routerLink]="['/seriesById', character.id]"  type="button"  class="btn btn-outline-secondary" data-toggle="modal" data-target=".cd-example-modal-lg">Series</button>
+    </div>
+</div>
+<div *ngIf="nothingFound">
+    <p>No characters found for "{{ name }}"</p>
+</div>
+<div class="pagination">
+    
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(21,21,21,255)', }">
+</ngx-loading>

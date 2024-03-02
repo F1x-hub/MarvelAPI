@@ -1,0 +1,16 @@
+
+<div *ngFor="let event of eventsArr | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage}">
+    <h3>Name: {{event.title}}</h3>
+    <p>descriptiom: {{event.description ? event.description : "N/A"}}</p>
+    <button class="routerButton" [routerLink]="['/eventsComics', event.id]"><img [src]="event.thumbnail.path +'/standard_medium.'+event.thumbnail.extension" alt=""></button>
+
+</div>
+<div class="pagination">
+    
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(21,21,21,255)', }">
+</ngx-loading>

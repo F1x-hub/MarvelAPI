@@ -1,0 +1,16 @@
+
+<div *ngFor="let comics of seriesArr | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage}">
+    <h3>Name: {{comics.title}}</h3>
+    <p>descriptiom: {{comics.description ? comics.description : "N/A"}}</p>
+    <button class="routerButton" [routerLink]="['/seriesComics', comics.id]"><img [src]="comics.thumbnail.path +'/standard_fantastic.'+comics.thumbnail.extension" alt=""></button>
+
+</div>
+<div class="pagination">
+    
+
+    <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+</div>
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(21,21,21,255)', }">
+</ngx-loading>

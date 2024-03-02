@@ -1,0 +1,19 @@
+<div class="carousel-container"  (keydown)="onKeyDown($event)">
+    <div class="carousel">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" (click)="prevSlide()">
+        <span class="carousel-control-prev-icon" aria-hidden="true"id="prevArrow"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <img [src]="charactersArr[prevIndex]?.thumbnail?.path + '.' + charactersArr[prevIndex]?.thumbnail?.extension" alt="Previous Slide">
+        <img [src]="charactersArr[currentSlideIndex]?.thumbnail?.path + '.' + charactersArr[currentSlideIndex]?.thumbnail?.extension" alt="Slide {{currentSlideIndex}}">
+        <img [src]="charactersArr[nextIndex]?.thumbnail?.path + '.' + charactersArr[nextIndex]?.thumbnail?.extension" alt="Next Slide">
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" (click)="nextSlide()">
+        <span class="carousel-control-next-icon" aria-hidden="false" id="nextArrow"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+</div>
+<ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px',backdropBackgroundColour: 'rgba(21,21,21,255)', }">
+</ngx-loading>
